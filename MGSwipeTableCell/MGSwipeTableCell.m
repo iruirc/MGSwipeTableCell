@@ -1402,6 +1402,16 @@ static inline CGFloat mgEaseInOutBounce(CGFloat t, CGFloat b, CGFloat c) {
                 _targetOffset = _swipeOffset > 0 ? 0 : (_rightView && _rightSwipeSettings.keepButtonsSwiped ? -_rightView.bounds.size.width : _targetOffset);
             }
             _targetOffset = [self filterSwipe:_targetOffset];
+            
+            if (_targetOffset != 0){
+                if (_targetOffset < 0) {
+                    _targetOffset -= _rightSwipeSettings.contentOffset;
+                }
+                else if (_targetOffset > 0){
+                    _targetOffset += _leftSwipeSettings.contentOffset;
+                }
+            }
+            
             MGSwipeSettings * settings = _swipeOffset > 0 ? _leftSwipeSettings : _rightSwipeSettings;
             MGSwipeAnimation * animation = nil;
             if (_targetOffset == 0) {

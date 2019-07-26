@@ -82,6 +82,8 @@ typedef NS_ENUM(NSInteger, MGSwipeEasingFunction) {
  ** For example it can be used to avoid cropped buttons when sectionIndexTitlesForTableView is used in the UITableView
  **/
 @property (nonatomic, assign) CGFloat offset;
+/** Optional offset to change the contentView position. */
+@property (nonatomic, assign) CGFloat contentOffset;
 /** Top margin of the buttons relative to the contentView */
 @property (nonatomic, assign) CGFloat topMargin;
 /** Bottom margin of the buttons relative to the contentView */
